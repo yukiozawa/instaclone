@@ -1,1 +1,15 @@
-This is header
+<% unless user_signed_in? %>
+  <ul>
+    <li><%= link_to "トップページ", root_path, method: :get  %></li>
+    <li><%= link_to "ログイン", new_user_session_path, method: :get  %></li>
+    <li><%= link_to "ユーザー登録", new_user_registration_path, method: :get %></li>
+  </ul>
+<% end %>
+
+<% if user_signed_in? %>
+    <ul>
+      <li><%= link_to "トップページ", root_path, method: :get  %></li>
+      <li><%= link_to "マイページ", user_path(current_user), method: :get %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+    </ul>
+<% end %>

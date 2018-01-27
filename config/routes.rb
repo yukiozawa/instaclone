@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root to: "pictures#index"
 
-  resource :users
-  resource :pictures
+  resources :users
+  resources :pictures
   
 end

@@ -1,0 +1,20 @@
+<h2><%= current_user.user_name %>さんの登録情報編集</h2>
+
+<div class="container text-center">
+
+
+<%= form_for current_user do |f| %>
+
+  <%= image_tag current_user.image.url(:middle), class: "img" if current_user.image? %></br>
+  <%= f.file_field :image, class: "edit-form" %></br>
+  
+  <div class="edit-title">ユーザーネーム</div>
+  <div><%= f.text_field :user_name, class: "edit-form" %></div>
+  <div class="edit-title">自己紹介</div>
+  <%= f.text_area :introduction, class: "edit-form edit-intro" %></br>
+  <div class="edit-title"><%= f.submit "編集", class: "btn btn-warning edit-form", id: "detail-btn"%></div>
+
+<% end %>
+
+
+</div>

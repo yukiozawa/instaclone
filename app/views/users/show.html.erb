@@ -1,0 +1,6 @@
+
+<%= link_to "マイページを編集", edit_user_path, method: :get %></br>
+
+<%= image_tag @user.image.url(:middle), class: "coordinator-img img text-center" if @user.image? %></br>
+<%= @user.user_name %></br>
+<%= @user.introduction %></br>
