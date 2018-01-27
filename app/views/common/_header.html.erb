@@ -10,6 +10,7 @@
     <ul>
       <li><%= link_to "トップページ", root_path, method: :get  %></li>
       <li><%= link_to "新規投稿", new_picture_path, method: :get  %></li>
+      <li><%= link_to "お気に入り一覧", favorites_path, method: :get  %></li>
       <li><%= link_to "マイページ", user_path(current_user), method: :get %></li>
       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
     </ul>
