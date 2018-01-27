@@ -1,12 +1,14 @@
+<h2>Picture 詳細</h2>
 
-<% @pictures.each do |p| %>
+<% p = @picture %>
   <%= link_to image_tag(p.image.url(:middle), class: "coordinator-img img text-center"), picture_path(p.id) if p.image? %></br>
   <%= p.title %></br>
   <%= p.content %></br>
   <%= image_tag p.user.image.url(:thumb) %></br>
 
-<% end %>
+  <% if p.user_id == current_user.id %>
+    <%= link_to "編集", edit_picture_path(p.id) %>
+    <%= link_to "削除", picture_path(p.id), method: :delete %>
 
-<div class="text-center">
-  <%= paginate(@pictures) %>
-</div>
+  <% end %>
+
