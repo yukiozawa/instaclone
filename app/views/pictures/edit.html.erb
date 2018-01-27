@@ -1,19 +1,36 @@
+<h2 class="page-title">投稿編集画面</h2>
+
 <div class="text-center">
-  <div class="apointment_screen">投稿編集画面</div>
+  <%= image_tag @picture.image.url(:middle), class: "img-center" %>
 </div>
 
-<%= image_tag @picture.image.url(:middle) %></br>
 
 <%= form_with(model: @picture, local: true ) do |f| %>
-  <%= f.label :タイトル %></br>
-  <%= f.text_field :title %></br>
 
-  <%= f.label :内容 %></br>
-  <%= f.text_area :content %></br>
+  <div class="form-area">
+    <div>
+      <%= f.label :タイトル %>
+    </div>
 
-  <div class="submit_area">
-    <%= f.submit "投稿", class: "submit_btn" %>
+    <div>
+      <%= f.text_field :title %>
+    </div>
+
+    <div>
+      <%= f.label :内容 %>
+    </div>
+    
+    <div>
+      <%= f.text_area :content %>
+    </div>
+
+    <div class="submit_area">
+      <%= f.submit "編集", class: "btn btn-success" %>
+    </div>
+
   </div>
+
+ 
 
   </div>
 <% end %>

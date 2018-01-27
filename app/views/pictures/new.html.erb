@@ -1,20 +1,33 @@
-<div class="text-center">
-  <div class="apointment_screen">新規投稿画面</div>
-</div>
+<h2 class="page-title">新規投稿</h2>
 
 <%= form_with(model: @picture, local: true ) do |f| %>
-  <%= f.label :タイトル %></br>
-  <%= f.text_field :title %></br>
+  <div class="form-area">
+    <div>
+      <%= f.label :タイトル %>
+    </div>
 
-  <%= f.label :内容 %></br>
-  <%= f.text_area :content %></br>
-  
-  <p class="text-center"><%= f.file_field :image %></p>
+    <div>
+      <%= f.text_field :title %>
+    </div>
 
-  <div class="submit_area">
-    <%= f.submit "投稿", class: "submit_btn" %>
+
+    <div>
+      <%= f.label :内容 %>
+    </div>
+    
+    <div>
+      <%= f.text_area :content %>
+    </div>
+
+     <p class="text-center"><%= f.file_field :image %></p>
+
+    <div class="submit_area">
+      <%= f.submit "投稿", class: "submit_btn btn btn-success" %>
+    </div>
+
   </div>
 
-  </div>
+ 
+
 <% end %>
   

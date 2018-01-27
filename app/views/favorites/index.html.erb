@@ -1,13 +1,18 @@
-<h2>お気に入り一覧</h2>
+<h2 class="page-title">お気に入り一覧</h2>
 
+<div class="row">
 
 <% @favorite_pictures.each do |p| %>
-  <%= link_to image_tag(p.image.url(:middle), class: "coordinator-img img text-center"), picture_path(p.id) if p.image? %></br>
-  <%= p.title %></br>
-  <%= p.content %></br>
-  <%= image_tag p.user.image.url(:thumb) %></br>
+  <div class="col-xs-12 col-sm-4">
+    <%= link_to image_tag(p.image.url(:middle), class: "coordinator-img img text-center"), picture_path(p.id) if p.image? %>
+    <p><%= p.title %></p>
+    <p><%= p.content %></p>
+    <%= image_tag p.user.image.url(:thumb), class: "img-circle" %>
+  </div>
 
 <% end %>
+
+</div>
 
 <div class="text-center">
   <%= paginate(@favorite_pictures) %>

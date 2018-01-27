@@ -4,14 +4,14 @@
   <%= link_to image_tag(p.image.url(:middle), class: "coordinator-img img text-center"), picture_path(p.id) if p.image? %></br>
 
   <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除する', favorite_path(picture_id: @picture.id), method: :delete, class: 'btn btn-danger' %>
+    <%= link_to 'お気に入り解除する', favorite_path(picture_id: @picture.id), method: :delete, class: 'btn btn-danger' %></br>
   <% else %>
-    <%= link_to 'お気に入りする', favorites_path(picture_id: @picture.id), method: :post, class: 'btn btn-prymary' %>
+    <%= link_to 'お気に入りする', favorites_path(picture_id: @picture.id), method: :post, class: 'btn btn-primary' %></br>
   <% end %>
 
   <%= p.title %></br>
   <%= p.content %></br>
-  <%= image_tag p.user.image.url(:thumb) %></br>
+  <%= image_tag p.user.image.url(:thumb), class: "img-circle" %></br>
 
   <% if p.user_id == current_user.id %>
     <%= link_to "編集", edit_picture_path(p.id) %>

@@ -1,17 +1,26 @@
-<% unless user_signed_in? %>
-  <ul>
-    <li><%= link_to "トップページ", root_path, method: :get  %></li>
-    <li><%= link_to "ログイン", new_user_session_path, method: :get  %></li>
-    <li><%= link_to "ユーザー登録", new_user_registration_path, method: :get %></li>
-  </ul>
-<% end %>
+<nav class="navbar navbar-inverse">
+  
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <h3><%= link_to "Insta-Clone", root_path, method: :get  %></h3>
+    </div>
 
-<% if user_signed_in? %>
-    <ul>
-      <li><%= link_to "トップページ", root_path, method: :get  %></li>
-      <li><%= link_to "新規投稿", new_picture_path, method: :get  %></li>
-      <li><%= link_to "お気に入り一覧", favorites_path, method: :get  %></li>
-      <li><%= link_to "マイページ", user_path(current_user), method: :get %></li>
-      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-    </ul>
-<% end %>
+    <% unless user_signed_in? %>
+      <ul class="nav navbar-nav">
+        <li><%= link_to "ログイン", new_user_session_path, method: :get  %></li>
+        <li><%= link_to "ユーザー登録", new_user_registration_path, method: :get %></li>
+      </ul>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <ul class="nav navbar-nav">
+        <li><%= link_to "新規投稿", new_picture_path, method: :get  %></li>
+        <li><%= link_to "お気に入り一覧", favorites_path, method: :get  %></li>
+        <li><%= link_to "マイページ", user_path(current_user), method: :get %></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    <% end %>
+
+  </div>
+
+</nav>
