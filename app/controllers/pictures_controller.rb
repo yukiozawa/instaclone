@@ -4,6 +4,7 @@ class PicturesController < ApplicationController
   end
 
   def new
+    user_filled?
     @picture = Picture.new
   end
 
@@ -12,6 +13,7 @@ class PicturesController < ApplicationController
     @picture = Picture.new(picture_params)
   
     if @picture.save
+      PostMailer.post_mail(@picture).deliver
       redirect_to root_path, notice: '投稿完了しました。'
     else
       redirect_to new_picture_path, alert: '投稿に失敗しました。'
