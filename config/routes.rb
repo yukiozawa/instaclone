@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   root to: "pictures#index"
 
   resources :users
-  resources :pictures
+  resources :pictures do
+    collection do
+      post :confirm
+    end
+  end
+
   resources :favorites, only: [:create, :destroy, :index]
 
   if Rails.env.development?

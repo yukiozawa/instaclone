@@ -9,9 +9,9 @@ class PicturesController < ApplicationController
   end
 
   def create
-    # binding.pry
+    binding.pry
     @picture = Picture.new(picture_params)
-  
+    
     if @picture.save
       PostMailer.post_mail(@picture).deliver
       redirect_to root_path, notice: '投稿完了しました。'
@@ -47,9 +47,15 @@ class PicturesController < ApplicationController
     redirect_to root_path, notice:"Pictureを削除しました！"
   end
 
+  def confirm
+    # binding.pry
+    @picture = Picture.new(picture_params)
+    
+  end
+
 
   private
   def picture_params
-    params.require(:picture).permit(:title, :content, :image).merge(user_id: current_user.id)
+    params.require(:picture).permit(:title, :content, :image, :image_cache).merge(user_id: current_user.id)
   end
 end

@@ -3,7 +3,7 @@
 <% @pictures.each do |p| %>
   <div class="col-xs-12 col-sm-4">
     <%= link_to image_tag(p.image.url(:middle), class: "coordinator-img img text-center"), picture_path(p.id) if p.image? %>
-    <p><%= p.title %></p>
+    <p><%= link_to "#{p.title}", picture_path(p.id)  %></p>
     <p><%= p.content %></p>
     <%= image_tag p.user.image.url(:thumb), class: "img-circle" %>
   </div>

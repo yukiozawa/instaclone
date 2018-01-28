@@ -1,6 +1,6 @@
 <h2 class="page-title">新規投稿</h2>
 
-<%= form_with(model: @picture, local: true ) do |f| %>
+<%= form_with(model: @picture, local: true, url: choose_new_or_edit ) do |f| %>
   <div class="form-area">
     <div>
       <%= f.label :タイトル %>
@@ -20,6 +20,7 @@
     </div>
 
      <p class="text-center"><%= f.file_field :image %></p>
+     <%= f.hidden_field :image_cache %>
 
     <div class="submit_area">
       <%= f.submit "投稿", class: "submit_btn btn btn-success" %>
